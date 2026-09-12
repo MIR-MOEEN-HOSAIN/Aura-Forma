@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-luxury-bg: #F8F7F5;
+  --color-luxury-surface: #F6F4F1;
+  --color-luxury-card: #FFFFFF;
+  --color-luxury-primary: #1A1A1A;
+  --color-luxury-secondary: #6E6E6E;
+  --color-luxury-accent: #8B6B4D;
+  --color-luxury-hover: #6F533B;
+  --color-luxury-border: #EAE7E3;
+  --color-luxury-footer: #121212;
+  --color-luxury-footer-text: #BEBEBE;
+  --color-luxury-success: #3D8B5A;
+}
+
+/* Custom smooth styling */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-luxury-surface);
+  color: var(--color-luxury-primary);
+  overflow-x: hidden;
+}
+
+.font-serif-luxury {
+  font-family: var(--font-serif);
+}
+
+/* Hide scrollbar for carousels while keeping functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Floating Animations for Testimonials and Elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.4deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-0.5deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(0.3deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out 1.5s infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6.5s ease-in-out 0.8s infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink-cursor 0.9s infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Pause floating animation on hover for effortless reading */
+.hover-pause:hover {
+  animation-play-state: paused;
+}
