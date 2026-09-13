@@ -18,11 +18,15 @@ import { QuickViewModal } from './components/QuickViewModal';
 import { SearchModal } from './components/SearchModal';
 import { ConsultationModal } from './components/ConsultationModal';
 import { Toast } from './components/Toast';
+import { LoadingScreen } from './components/LoadingScreen';
 
 import { PRODUCTS } from './data/products';
 import { Product, CartItem } from './types';
 
 export default function App() {
+  // Brand Loading Page State
+  const [isLoading, setIsLoading] = useState(true);
+
   // State for Cart, Wishlist, and Modals
   const [cart, setCart] = useState<CartItem[]>([
     {
@@ -142,6 +146,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F8F7F5] text-[#1A1A1A] flex flex-col antialiased selection:bg-[#8B6B4D]/20 selection:text-[#1A1A1A]">
+      {/* Brand Luxury Loading Page with Company Logo */}
+      {isLoading && (
+        <LoadingScreen
+          onComplete={() => {
+            setIsLoading(false);
+          }}
+        />
+      )}
+
       {/* Floating Sticky Glassmorphic Navbar */}
       <Navbar
         cart={cart}
